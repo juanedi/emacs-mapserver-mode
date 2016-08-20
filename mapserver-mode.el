@@ -1,7 +1,36 @@
-(require 'generic-x) ;; we need this
+;;; mapserver-mode.el --- Support for the Foo programming language
 
+;; Copyright (C) 2016 Juan Edi
+;; Author: Juan Edi
+;; URL: https://github.com/juanedi/emacs-mapserver-mode
+;; Created: 20 Aug 2016
+;; Keywords: languages
+
+;; This file is not part of GNU Emacs.
+
+;; GNU Emacs is free software: you can redistribute it and/or modify
+;; it under the terms of the GNU General Public License as published by
+;; the Free Software Foundation, either version 3 of the License, or
+;; (at your option) any later version.
+
+;; GNU Emacs is distributed in the hope that it will be useful,
+;; but WITHOUT ANY WARRANTY; without even the implied warranty of
+;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+;; GNU General Public License for more details.
+
+;; You should have received a copy of the GNU General Public License
+;; along with GNU Emacs.  If not, see <http://www.gnu.org/licenses/>.
+;;
+;; Commentary:
+;;
 ;; Most keyword definitions below are taken from TextPad syntax definitions (*.syn) by Chris Thorne (thorne@dmsolutions.ca) as of May 2004, for version 4.0 MapServer
 ;; The idea to take the definitions from there was taken from Andreas Hirner's vim plugin :)
+
+;;; Code:
+
+(require 'generic-x) ;; we need this
+
+;;;###autoload
 (define-generic-mode 'mapserver-mode
   '("#")                                   ;; comments start with '!!'
   '(
@@ -24,3 +53,12 @@
   nil                               ;; other functions to call
   "A mode for mapserver map files"
   )
+
+
+;;;###autoload
+(add-to-list 'auto-mode-alist '("\\.map\\'" . mapserver-mode))
+
+(provide 'mapserver-mode)
+
+
+;;; mapserver-mode.el ends here
